@@ -1,12 +1,13 @@
 # rv-systems
-Machine Learning Classification of Vibration Data
+This repository contains code to classify vibration data from various machines using different machine learning models. The code includes data loading, preprocessing, model training, hyperparameter tuning, and evaluation.
+
 Project Overview
-This project aims to classify time-series vibration data from 12 different machines using advanced machine learning models. The pipeline includes data loading, preprocessing, feature extraction, model training, hyperparameter tuning, and evaluation. Models evaluated include Gradient Boosting (XGBoost), Random Forest, SVM, k-NN, Naive Bayes, Decision Tree, and an ensemble voting classifier.
+The objective of this project is to classify time-series vibration data from 12 different machines using several classification models. The data is processed, features are extracted, and various models are trained to achieve classification accuracy. The models evaluated include Support Vector Machine (SVM), k-Nearest Neighbors (k-NN), Naive Bayes, and Decision Tree. An ensemble voting classifier is also used to combine the predictions from these models.
 
 Directory Structure
 dataset_dir/: Directory containing the .dat files with the vibration data.
 Requirements
-To run this project, ensure you have the following Python packages installed:
+To run this code, ensure you have the following Python packages installed:
 
 numpy
 pandas
@@ -14,39 +15,35 @@ matplotlib
 seaborn
 scikit-learn
 tqdm
-You can install these packages using pip:
-
-bash
-Copy code
-pip install numpy pandas matplotlib seaborn scikit-learn tqdm
 Pipeline Overview
-The project implements a comprehensive machine learning pipeline for classifying time-series vibration data. The key stages are:
+This repository contains a comprehensive machine learning pipeline for classifying time-series vibration data. The pipeline includes data loading, preprocessing, feature extraction, model training, and evaluation.
 
-Data Loading: Loads vibration data from .dat files using numpy.fromfile.
-Data Preprocessing: Includes downsampling, handling missing values with numpy.nan_to_num, and feature extraction.
-Feature Extraction: Extracts statistical features, frequency domain features (FFT), and time-frequency features (STFT, Wavelets). Standardization is applied using StandardScaler.
-Model Training and Evaluation: Includes training and evaluation of multiple models and hyperparameter tuning using GridSearchCV.
-Models Evaluated
-k-Nearest Neighbors (k-NN): Achieved 34% accuracy.
-Naive Bayes (NB): Achieved 17% accuracy.
-Decision Tree (DT): Achieved 36% accuracy.
+Data Loading
+The script loads time-series vibration data from .dat files located in the RV_Systems_ML_Training_Sets directory. Each file is accessed using numpy.fromfile, and data is mapped based on its index.
 
-Evaluation Metrics
-Models are evaluated using:
+Data Preprocessing
+The preprocessing steps include:
 
-Accuracy
-Confusion Matrix
-Classification Report
-Learning Curves
+Downsampling: To expedite processing, the data is randomly downsampled.
+Handling Missing Values: Missing values are replaced using numpy.nan_to_num.
+Feature Extraction: The real and imaginary components of the vibration data are separated. Statistical features, such as mean and standard deviation, are computed and appended to the data.
+Feature Extraction
+Additional statistical features (mean and standard deviation) are computed and appended to the vibration data. The resulting feature set is then standardized using StandardScaler.
+
+Model Training and Evaluation
+The pipeline includes the training and evaluation of the following machine learning models:
+
+Support Vector Machine (SVM): Tuned using GridSearchCV.
+k-Nearest Neighbors (k-NN): Tuned using GridSearchCV.
+Naive Bayes (NB): Uses a default Gaussian Naive Bayes classifier.
+Decision Tree (DT): A decision tree with restricted depth for complexity management.
+Voting Classifier: An ensemble model that combines the predictions of the above classifiers.
+Each model's performance is assessed using accuracy, confusion matrix, classification report, and learning curve visualizations. You can install these packages using pip:
+
 How to Use
 Download and Prepare Data: Ensure the .dat files are placed in the RV_Systems_ML_Training_Sets directory.
-
-Install Dependencies: Run the command to install required Python packages:
-
-bash
-Copy code
-pip install -r requirements.txt
-Run the Pipeline: Execute the main script to start the data loading, preprocessing, feature extraction, model training, and evaluation.
+Install Dependencies: Install the required Python packages.
+Results
 
 Notes
 The pipeline effectively classifies vibration data, achieving high accuracy with the ensemble voting classifier.

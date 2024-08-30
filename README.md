@@ -1,4 +1,5 @@
-# rv-systems
+# Rv-systems
+Machine Learning Classification of Vibration Data
 This repository contains code to classify vibration data from various machines using different machine learning models. The code includes data loading, preprocessing, model training, hyperparameter tuning, and evaluation.
 
 Project Overview
@@ -43,7 +44,6 @@ Each model's performance is assessed using accuracy, confusion matrix, classific
 How to Use
 Download and Prepare Data: Ensure the .dat files are placed in the RV_Systems_ML_Training_Sets directory.
 Install Dependencies: Install the required Python packages.
-Results
 
 Notes
 The pipeline effectively classifies vibration data, achieving high accuracy with the ensemble voting classifier.

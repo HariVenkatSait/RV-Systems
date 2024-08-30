@@ -37,9 +37,9 @@ Additional statistical features (mean and standard deviation) are computed and a
 # Model Training and Evaluation
 The pipeline includes the training and evaluation of the following machine learning models:
 
-# k-Nearest Neighbors (k-NN): Tuned using GridSearchCV.
-# Naive Bayes (NB): Uses a default Gaussian Naive Bayes classifier.
-# Decision Tree (DT): A decision tree with restricted depth for complexity management.
+## k-Nearest Neighbors (k-NN): Tuned using GridSearchCV.
+## Naive Bayes (NB): Uses a default Gaussian Naive Bayes classifier.
+## Decision Tree (DT): A decision tree with restricted depth for complexity management.
 
 Each model's performance is assessed using accuracy, confusion matrix, classification report. You can install these packages using pip:
 
